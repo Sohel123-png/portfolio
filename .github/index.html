@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohel Ali - Data Scientist Portfolio</title>
+    <!-- Google Fonts for a modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00aaff; /* Electric Blue */
+            --secondary-color: #0a192f; /* Dark Navy */
+            --background-color: #040c18; /* Near Black */
+            --text-color: #ccd6f6; /* Light Slate */
+            --card-bg: #112240; /* Lighter Navy */
+            --shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+            --border-radius: 8px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        .navbar {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* --- Hero Section --- */
+        #hero {
+            background-image: linear-gradient(rgba(4, 12, 24, 0.8), rgba(4, 12, 24, 0.8)), url('https://images.unsplash.com/photo-1534723452862-4c874018d66d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+
+        #hero .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* --- General Section Styling --- */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #fff;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* --- About Me Section --- */
+        #about .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        #about img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(0, 170, 255, 0.3);
+            border: 2px solid var(--primary-color);
+            justify-self: center;
+        }
+
+        /* --- Skills Section --- */
+        #skills {
+            background-color: var(--secondary-color);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 25px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid transparent;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .skill-card span {
+            font-weight: 500;
+        }
+
+        /* --- Projects Section --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
+        }
+
+        .project-card .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .project-card:hover h3 {
+            color: var(--primary-color);
+        }
+
+        .project-card p {
+            margin-bottom: 15px;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+        
+        .tags {
+            margin-bottom: 20px;
+        }
+
+        .tags .tag {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .project-links i {
+            margin-right: 8px;
+        }
+
+        /* --- Achievements Section --- */
+        #achievements {
+             background-color: var(--secondary-color);
+        }
+        .achievement-list {
+            list-style-type: none;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .achievement-list li {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .achievement-list li:hover {
+            background-color: #1a2f4d;
+        }
+        
+        .achievement-list i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--card-bg);
+        }
+        
+        footer p {
+            margin-bottom: 20px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            #about .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .nav-links {
+                display: none; /* Simple approach for this example */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Sohel Ali</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="container hero-content">
+            <h1>Sohel Ali</h1>
+            <p>Aspiring Data Scientist & Machine Learning Enthusiast passionate about building intelligent systems that solve real-world problems.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/sohel-ali-b1aab8250" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Sohel123-png" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:sasalisayyed@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Me Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <!-- ACTION: Replace this placeholder link with a link to your own hosted professional photo. -->
+                    <img src="so.jpg" alt="Sohel Ali">
+                    <div>
+                        <p>Hello! I'm a  B.Tech student specializing in Artificial Intelligence & Machine Learning. My journey in tech is driven by a deep curiosity for understanding data and using it to create meaningful impact. I enjoy the entire process of developing an ML model, from data wrangling and feature engineering to model evaluation and deployment. I am currently seeking opportunities to apply my skills to challenging projects and contribute to a forward-thinking team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card"><i class="fab fa-python"></i><span>Python</span></div>
+                    <div class="skill-card"><i class="fas fa-database"></i><span>NumPy & Pandas</span></div>
+                    <div class="skill-card"><i class="fas fa-brain"></i><span>Scikit-learn</span></div>
+                    <div class="skill-card"><i class="fas fa-chart-bar"></i><span>Matplotlib</span></div>
+                    <div class="skill-card"><i class="fas fa-camera"></i><span>OpenCV</span></div>
+                    <div class="skill-card"><i class="fas fa-robot"></i><span>TensorFlow</span></div>
+                    <div class="skill-card"><i class="fab fa-github"></i><span>Git & GitHub</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3>Titanic Survival Prediction</h3>
+                            <!-- ACTION: Improve this description. Example below: -->
+                            <p>Developed a classification model to predict passenger survival on the Titanic. I handled missing age data using imputation and engineered new features like 'FamilySize'. The final model, a Random Forest Classifier, achieved 79.88% accuracy on the test set.</p>
+                            <div class="tags">
+                                <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span>
+                            </div>
+                            <div class="project-links">
+                                <!-- ACTION: Change this link to the DIRECT repository for THIS project. -->
+                                <a href="https://github.com/Sohel123-png/titanic-survival-prediction" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3>Credit Card Fraud Detection</h3>
+                             <!-- ACTION: Improve this description. Example below: -->
+                            <p>Built a model to identify fraudulent transactions from a highly imbalanced dataset. I used the SMOTE technique to handle the class imbalance, which significantly improved the model's recall to 0.92, ensuring most fraudulent cases were caught.</p>
+                            <div class="tags">
+                                <span class="tag">Classification</span><span class="tag">Data Analysis</span>
+                            </div>
+                            <div class="project-links">
+                                <!-- ACTION: Change this link to the DIRECT repository for THIS project. -->
+                                <a href="https://github.com/Sohel123-png/fraud-detection" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3>Face Recognition System</h3>
+                            <!-- ACTION: Improve this description. Example below: -->
+                            <p>Engineered a real-time authentication system using a pre-trained FaceNet model and OpenCV. The system achieves over 99% accuracy in identifying registered users from a live video stream, making it suitable for security applications.</p>
+                            <div class="tags">
+                                <span class="tag">OpenCV</span><span class="tag">Deep Learning</span><span class="tag">TensorFlow</span>
+                            </div>
+                            <div class="project-links">
+                                <!-- ACTION: Change this link to the DIRECT repository for THIS project. -->
+                                <a href="https://github.com/Sohel123-png/face-recognition" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4: FitGen -->
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3>FitGen – AI Fitness Planner</h3>
+                             <!-- ACTION: Improve this description. Example below: -->
+                            <p>An intelligent application that generates personalized fitness routines and diet plans. I designed the recommendation algorithm using a content-based filtering approach to match user goals with a database of exercises and nutritional information.</p>
+                            <div class="tags">
+                                <span class="tag">AI</span><span class="tag">Personalization</span>
+                            </div>
+                            <div class="project-links">
+                                <!-- ACTION: Change this link to the DIRECT repository for THIS project. -->
+                                <a href="https://github.com/Sohel123-png/fitgen-app" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements & Certifications Section -->
+        <section id="achievements">
+            <div class="container">
+                <h2 class="section-title">Achievements & Certifications</h2>
+                <ul class="achievement-list">
+                    <li><i class="fas fa-award"></i> Desktop App Development Workshop – RICR, SIRT Bhopal</li>
+                    <li><i class="fas fa-award"></i> IoT Trends & Predictions Workshop – Onprice Infotech</li>
+                    <li><i class="fas fa-award"></i> SAGE IoT Summer School – SAGE Group</li>
+                    <li><i class="fas fa-award"></i> Kaggle Competition Participant - Titanic Survival Prediction</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Interested in collaborating? Feel free to reach out!</p>
+            <p><strong><a href="mailto:sasalisayyed@gmail.com" style="color:white;">sasalisayyed@gmail.com</a></strong></p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/sohel-ali-b1aab8250" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Sohel123-png" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
